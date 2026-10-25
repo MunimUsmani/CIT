@@ -1,6 +1,6 @@
 # ==========================================
 # functions.py
-# Topic: Functions (with variables, conditions and return)
+# Topic: Functions (with variables, conditions, return and scope)
 # ==========================================
 # Function = a reusable block of code with a name.
 # def  -> creates (defines) the function
@@ -147,6 +147,94 @@ def sum_of_squares(a, b):
 
 print(sum_of_squares(3, 4))   # 9 + 16 = 25
 
+
+print("--- Step 17: SCOPE - local variables ---")
+# Scope = the place where a variable can be seen and used.
+# A variable created INSIDE a function is LOCAL.
+# It is born when the function starts and disappears when it ends.
+# Analogy: your private notebook inside your school bag.
+# Only you (the function) can see it. Nobody outside can read it.
+def make_secret():
+    secret = "I live only inside this function"
+    print(secret)         # works: we are inside the function
+
+make_secret()
+# print(secret)           # ERROR (NameError): secret does not exist out here.
+#                         # Remove the # at the start of the line to see it.
+
+print("--- Step 18: SCOPE - global variables ---")
+# A variable created OUTSIDE all functions is GLOBAL.
+# Analogy: the notice board in the school corridor.
+# Every classroom (function) can walk out and READ it.
+school_name = "Python Academy"
+
+def welcome_student(name):
+    print("Welcome", name, "to", school_name)   # reads the global variable
+
+welcome_student("Ali")
+welcome_student("Sara")
+
+print("--- Step 19: Parameters are local too ---")
+# Parameters only exist inside their function.
+def triple(n):
+    return n * 3
+
+print(triple(4))
+# print(n)                # ERROR: n belongs to triple() only.
+
+print("--- Step 20: Same name, different variables ---")
+# If a function creates a variable with the SAME name as a global one,
+# Python makes a brand new local variable. The global one stays unchanged.
+level = 1                 # global
+
+def change_level():
+    level = 99            # NEW local variable, not the global one
+    print("Inside function:", level)
+
+change_level()
+print("Outside function:", level)   # still 1
+
+print("--- Step 21: Changing a global variable ---")
+# A function can READ a global freely, but it cannot CHANGE it by default.
+points = 0
+
+def add_point_broken():
+    # points = points + 1   # ERROR (UnboundLocalError): Python thinks
+    #                       # points is local here, but it has no value yet.
+    pass
+
+# Option 1: the global keyword. It works, but use it sparingly,
+# because it makes code harder to follow.
+def add_point_global():
+    global points
+    points = points + 1
+
+add_point_global()
+add_point_global()
+print("Points (global keyword):", points)   # 2
+
+# Option 2 (BETTER): pass the value in and RETURN the new value.
+def add_point(current):
+    return current + 1
+
+points = add_point(points)
+print("Points (with return):", points)      # 3
+
+print("--- Step 22: Every call starts fresh ---")
+# Local variables are created again each time the function runs.
+def counter_demo():
+    count = 0
+    count = count + 1
+    return count
+
+print(counter_demo())   # 1
+print(counter_demo())   # 1 again, not 2! The old count was thrown away.
+
+# Scope summary:
+#   Local  -> created inside a function, only usable inside it (private notebook)
+#   Global -> created outside functions, readable everywhere (notice board)
+#   To get information OUT of a function, use return.
+#   To get information INTO a function, use parameters.
 
 # ---------- PRACTICE PROBLEMS (task comment, then solution) ----------
 
@@ -410,3 +498,84 @@ def fizzbuzz(n):
 
 for i in range(1, 16):
     print(fizzbuzz(i))
+
+
+# --- Level 7: Scope ---
+
+# Q24: Predict the output BEFORE running. What do the two prints show?
+#      x = 10 is global; the function creates its own x = 5.
+x = 10
+
+def show_x():
+    x = 5
+    print(x)
+
+show_x()
+print(x)
+# Answer: 5 (local x inside the function), then 10 (global x is unchanged).
+
+
+# Q25: Create a global variable favorite_color = "blue". Create a function
+#      called print_favorite() that prints "My favorite color is ___" using
+#      the global variable. Call it.
+favorite_color = "blue"
+
+def print_favorite():
+    print("My favorite color is", favorite_color)
+
+print_favorite()
+
+
+# Q26: Create a global variable score = 10. Create a function add_bonus(s)
+#      that RETURNS s + 5. Update score using the function, then print it
+#      (answer: 15).
+score = 10
+
+def add_bonus(s):
+    return s + 5
+
+score = add_bonus(score)
+print(score)
+
+
+# Q27: Create a global variable counter = 0. Create a function increase()
+#      that adds 1 to counter using the global keyword.
+#      Call it 3 times, then print counter (answer: 3).
+counter = 0
+
+def increase():
+    global counter
+    counter = counter + 1
+
+increase()
+increase()
+increase()
+print(counter)
+
+
+# Q28 (Challenge): Do Q27 again WITHOUT the global keyword.
+#     Create increase_value(c) that RETURNS c + 1, and use it 3 times
+#     with a variable called counter2 (answer: 3).
+def increase_value(c):
+    return c + 1
+
+counter2 = 0
+counter2 = increase_value(counter2)
+counter2 = increase_value(counter2)
+counter2 = increase_value(counter2)
+print(counter2)
+
+
+# Q29 (Challenge): Predict the output BEFORE running. Why isn't it 2?
+#     (Hint: think about local variables and what the function returns.)
+total_calls = 0
+
+def add_one():
+    total_calls = 1
+    return total_calls
+
+add_one()
+add_one()
+print(total_calls)
+# Answer: 0. Inside add_one(), total_calls is a NEW local variable.
+# The global total_calls is never changed, and the returned value is ignored.
