@@ -1,26 +1,37 @@
-# ==========================================
-# functions.py
-# Topic: Functions (with variables, conditions, return and scope)
-# ==========================================
-# Function = a reusable block of code with a name.
-# def  -> creates (defines) the function
-# name() -> calls (runs) the function
-# Tip: To run one example at a time, put # in front of the others.
-
-# ---------- EXAMPLES ----------
-
-print("--- Step 1: A simple function ---")
+🐍 Python Functions — Beginner's Guide
+A practical lesson covering function definitions, parameters, print(), return, conditions, loops, variable scope, and practice problems.
+What You'll Learn
+- What functions are and why we use them
+- How to define and call functions
+- How to use parameters and arguments
+- The difference between print() and return
+- How functions work with conditions and loops
+- Local and global variable scope
+- Practice problems from beginner to challenge level
+Table of Contents
+1. Function Basics
+2. Examples: Step by Step
+3. Variable Scope
+4. Practice Problems
+Function Basics
+A function is a reusable block of code with a name.
+- def creates (defines) a function.
+- name() calls (runs) a function.
+- A function helps us write code once and reuse it whenever we need it.
+For the examples below, run one example at a time if you want to focus on a particular concept.
+Examples: Step by Step
+Step 1: A simple function
 def say_hello():
     print("Hello!")
 
 say_hello()
 
-print("--- Step 2: Reusable - call it many times ---")
+Step 2: Reusable - call it many times
 say_hello()
 say_hello()
 say_hello()
 
-print("--- Step 3: Function with a parameter ---")
+Step 3: Function with a parameter
 # A parameter is a variable that receives a value when we call the function.
 def greet(name):
     print("Hello", name)
@@ -28,14 +39,14 @@ def greet(name):
 greet("Ali")
 greet("Sara")
 
-print("--- Step 4: Two parameters ---")
+Step 4: Two parameters
 def show_sum(a, b):
     print(a, "+", b, "=", a + b)
 
 show_sum(3, 4)
 show_sum(10, 25)
 
-print("--- Step 5: Introducing return ---")
+Step 5: Introducing return
 # print  -> SHOWS something on the screen. Nothing comes back.
 # return -> SENDS a value BACK to the place where the function was called.
 # Analogy: a vending machine. You press a button (call the function)
@@ -48,14 +59,14 @@ print(result)
 print(add(10, 5))        # we can also print it directly
 print(add(2, 3) * 10)    # and use it in a calculation: 5 * 10 = 50
 
-print("--- Step 6: What if there is NO return? ---")
+Step 6: What if there is NO return?
 def add_no_return(a, b):
     print(a + b)         # only shows the answer, does not send it back
 
 x = add_no_return(3, 4)  # prints 7
 print(x)                 # None -> nothing came back!
 
-print("--- Step 7: return + variables ---")
+Step 7: return + variables
 def area_of_rectangle(length, width):
     area = length * width
     return area
@@ -64,7 +75,7 @@ print(area_of_rectangle(5, 3))
 a1 = area_of_rectangle(4, 6)
 print("Area:", a1)
 
-print("--- Step 8: return + conditions (True / False) ---")
+Step 8: return + conditions (True / False)
 def is_even(number):
     if number % 2 == 0:
         return True
@@ -74,11 +85,11 @@ def is_even(number):
 print(is_even(4))
 print(is_even(7))
 
-print("--- Step 9: Using the returned value in an if ---")
+Step 9: Using the returned value in an if
 if is_even(10):
     print("10 is even")
 
-print("--- Step 10: return different messages ---")
+Step 10: return different messages
 def check_age(age):
     if age >= 18:
         return "Adult"
@@ -88,7 +99,7 @@ def check_age(age):
 print(check_age(20))
 print(check_age(12))
 
-print("--- Step 11: return ends the function immediately ---")
+Step 11: return ends the function immediately
 def positive_or_not(n):
     if n > 0:
         return "Positive"
@@ -97,7 +108,7 @@ def positive_or_not(n):
 print(positive_or_not(5))
 print(positive_or_not(-3))
 
-print("--- Step 12: if / elif / else with return ---")
+Step 12: if / elif / else with return
 def grade(marks):
     if marks >= 80:
         return "A"
@@ -110,7 +121,7 @@ print(grade(85))
 print(grade(65))
 print(grade(30))
 
-print("--- Step 13: Function with a loop inside ---")
+Step 13: Function with a loop inside
 def print_table(n):
     for i in range(1, 11):
         print(n, "x", i, "=", n * i)
@@ -118,7 +129,7 @@ def print_table(n):
 print_table(2)
 print_table(5)
 
-print("--- Step 14: Loop + variable + return ---")
+Step 14: Loop + variable + return
 def sum_to(n):
     total = 0
     for i in range(1, n + 1):
@@ -128,7 +139,7 @@ def sum_to(n):
 print(sum_to(5))     # 15
 print(sum_to(100))   # 5050
 
-print("--- Step 15: Loop + condition + return ---")
+Step 15: Loop + condition + return
 def count_even(n):
     count = 0
     for i in range(1, n + 1):
@@ -138,7 +149,7 @@ def count_even(n):
 
 print(count_even(20))   # 10
 
-print("--- Step 16: A function using another function ---")
+Step 16: A function using another function
 def square(n):
     return n * n
 
@@ -148,7 +159,13 @@ def sum_of_squares(a, b):
 print(sum_of_squares(3, 4))   # 9 + 16 = 25
 
 
-print("--- Step 17: SCOPE - local variables ---")
+Variable Scope
+Scope means the place where a variable can be seen and used.
+- Local variable: created inside a function; it is only available inside that function.
+- Global variable: created outside functions; functions can read it.
+- Parameters: values passed into a function; parameters are local to that function.
+Scope Examples
+Step 17: SCOPE - local variables
 # Scope = the place where a variable can be seen and used.
 # A variable created INSIDE a function is LOCAL.
 # It is born when the function starts and disappears when it ends.
@@ -162,7 +179,7 @@ make_secret()
 # print(secret)           # ERROR (NameError): secret does not exist out here.
 #                         # Remove the # at the start of the line to see it.
 
-print("--- Step 18: SCOPE - global variables ---")
+Step 18: SCOPE - global variables
 # A variable created OUTSIDE all functions is GLOBAL.
 # Analogy: the notice board in the school corridor.
 # Every classroom (function) can walk out and READ it.
@@ -174,7 +191,7 @@ def welcome_student(name):
 welcome_student("Ali")
 welcome_student("Sara")
 
-print("--- Step 19: Parameters are local too ---")
+Step 19: Parameters are local too
 # Parameters only exist inside their function.
 def triple(n):
     return n * 3
@@ -182,7 +199,7 @@ def triple(n):
 print(triple(4))
 # print(n)                # ERROR: n belongs to triple() only.
 
-print("--- Step 20: Same name, different variables ---")
+Step 20: Same name, different variables
 # If a function creates a variable with the SAME name as a global one,
 # Python makes a brand new local variable. The global one stays unchanged.
 level = 1                 # global
@@ -194,7 +211,7 @@ def change_level():
 change_level()
 print("Outside function:", level)   # still 1
 
-print("--- Step 21: Changing a global variable ---")
+Step 21: Changing a global variable
 # A function can READ a global freely, but it cannot CHANGE it by default.
 points = 0
 
@@ -220,7 +237,7 @@ def add_point(current):
 points = add_point(points)
 print("Points (with return):", points)      # 3
 
-print("--- Step 22: Every call starts fresh ---")
+Step 22: Every call starts fresh
 # Local variables are created again each time the function runs.
 def counter_demo():
     count = 0
@@ -236,6 +253,8 @@ print(counter_demo())   # 1 again, not 2! The old count was thrown away.
 #   To get information OUT of a function, use return.
 #   To get information INTO a function, use parameters.
 
+Practice Problems
+The following exercises are arranged from simple functions to challenges combining functions, conditions, loops, and scope. Each question is followed by its solution in the source lesson.
 # ---------- PRACTICE PROBLEMS (task comment, then solution) ----------
 
 # --- Level 1: Simple functions (no parameters) ---
@@ -579,3 +598,10 @@ add_one()
 print(total_calls)
 # Answer: 0. Inside add_one(), total_calls is a NEW local variable.
 # The global total_calls is never changed, and the returned value is ignored.
+Quick Summary
+- Use parameters to pass information into a function.
+- Use return to send a value back from a function.
+- Use print() to display information on the screen.
+- Local variables belong to the function where they are created.
+- Global variables are created outside functions.
+- Returning a new value is often clearer than changing a global variable.
