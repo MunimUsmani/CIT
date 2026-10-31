@@ -979,7 +979,3 @@ When solving a recursion problem, always ask yourself these questions:
 The most important thing to understand is that a function doesn't just call itself randomly.
 
 It breaks a problem into smaller versions of the same problem until it reaches a stopping point. Then the results travel back through the previous calls.
-
-**Practice, dry-run, and understand the process rather than memorizing the code!**
-
-Happy Coding! 🚀
