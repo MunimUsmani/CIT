@@ -173,7 +173,7 @@ factorial(4) → 4 × 6 = 24
 
 ```text
        GOING DOWN
-       
+
        factorial(4)
              |
        factorial(3)
@@ -187,9 +187,9 @@ factorial(4) → 4 × 6 = 24
           BASE CASE
              |
              ↓
-             
+
        COMING BACK UP
-       
+
        factorial(0) = 1
        factorial(1) = 1
        factorial(2) = 2
@@ -816,13 +816,16 @@ print(family_age_sum(family))
 
 # 14. Recursion Challenge Problems
 
-Try solving these problems yourself before looking for solutions!
+Try solving these problems yourself before looking for solutions! Click **Solution** under each problem to check your answer.
 
 ## 🟢 Easy Level
 
 ### Challenge 1 — Count Steps
 
 Write a recursive function that counts how many steps are left before reaching zero.
+
+<details>
+<summary>Solution</summary>
 
 ```python
 def count_steps(stairs):
@@ -836,7 +839,20 @@ def count_steps(stairs):
 print(count_steps(5))
 ```
 
+**Output:**
+
+```text
+5
+```
+
+</details>
+
 ### Challenge 2 — Birthday Countdown
+
+Write a recursive function that prints how many days are left until a birthday, and finishes with a birthday message when the days reach zero.
+
+<details>
+<summary>Solution</summary>
 
 ```python
 def birthday_countdown(days):
@@ -853,9 +869,25 @@ def birthday_countdown(days):
 birthday_countdown(5)
 ```
 
+**Output:**
+
+```text
+5 days left
+4 days left
+3 days left
+2 days left
+1 days left
+🎉 Happy Birthday!
+```
+
+</details>
+
 ### Challenge 3 — Total Allowance
 
 Calculate the total allowance received over multiple weeks.
+
+<details>
+<summary>Solution</summary>
 
 ```python
 def total_allowance(amount, weeks):
@@ -869,11 +901,22 @@ def total_allowance(amount, weeks):
 print(total_allowance(500, 4))
 ```
 
+**Output:**
+
+```text
+2000
+```
+
+</details>
+
 ## 🟡 Medium Level
 
 ### Challenge 4 — Check Password Characters
 
 Check whether every character in a password is either a letter, number, or one of the allowed symbols.
+
+<details>
+<summary>Solution</summary>
 
 ```python
 def check_password_strength(password, index=0):
@@ -892,9 +935,20 @@ def check_password_strength(password, index=0):
 print(check_password_strength("Hello@123"))
 ```
 
+**Output:**
+
+```text
+True
+```
+
+</details>
+
 ### Challenge 5 — Decimal to Binary
 
 Convert a decimal number into binary using recursion.
+
+<details>
+<summary>Solution</summary>
 
 ```python
 def decimal_to_binary(n):
@@ -917,9 +971,14 @@ print(decimal_to_binary(10))
 1010
 ```
 
+</details>
+
 ### Challenge 6 — Flatten a Nested List
 
 Convert a nested list into a single list.
+
+<details>
+<summary>Solution</summary>
 
 ```python
 def flatten_list(nested):
@@ -947,6 +1006,8 @@ print(flatten_list(numbers))
 ```text
 [1, 2, 3, 4, 5, 6]
 ```
+
+</details>
 
 ---
 
