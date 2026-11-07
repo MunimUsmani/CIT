@@ -4,7 +4,7 @@ A step-by-step introduction to lists: what they are, how to create them, how to 
 
 ## The Lists & Tuples Series
 
-Teach these files in this order:
+Our order for this week:
 
 | Order | File | Topic |
 |:---:|---|---|
